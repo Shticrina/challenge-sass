@@ -1,5 +1,7 @@
 $primary-color: #2748B3;
-$default-color: #27b379;
+$success-color: #27b379;
+$warning-color: #f8a428;
+$danger-color: #ec5959;
 $white-color: #f3f3f3;
 $secondary-color: #ccc;
 
@@ -12,9 +14,17 @@ $blue: 8px;
     box-shadow: $property;
 }
 
+%message-shared {
+    /*border: 1px solid #ccc;*/
+    padding: 10px;
+    color: #2748B3;
+    background-color: #000;
+    width: 100%
+}
+
 body {
     font: 100% "Space Mono", monospace;
-    color: $default-color; /*green*/
+    color: $success-color; /*green*/
     margin: 0px;
     padding: 0px;
     background-color: #000;
@@ -40,7 +50,6 @@ article {
         box-sizing: border-box;
 
         code {
-            /*background: #000;*/
             border: 1px solid #ddd;
             color: #666;
             page-break-inside: avoid;
@@ -53,7 +62,7 @@ article {
             padding: 1em 1.5em;
             display: block;
             word-wrap: break-word;
-            background-color: $default-color
+            background-color: $success-color
         }
 
         code.before {
@@ -93,25 +102,21 @@ h1 {
     color: $primary-color;
 }
 
-.message,
-.success,
-.error,
-.warning {
-    border: 1px solid #ccc;
-    padding: 10px;
-    color: #2748B3;
-    background-color: #000;
-    width: 100%
+.message {
+    @extend %message-shared;
 }
 
 .success {
-    background-color: $default-color
+    @extend %message-shared;
+    background-color: $success-color
 }
 
 .error {
-    background-color: red
+    @extend %message-shared;
+    background-color: $danger-color
 }
 
 .warning {
-    background-color: orange
+    @extend %message-shared;
+    background-color: $warning-color
 }
