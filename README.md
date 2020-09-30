@@ -1,9 +1,9 @@
 # challenge-sass
 
-### Trainig about SASS technology
+### Training about SASS technology
 
 **In this exercise we have to:**
 
-- install Sass & generate some CSS using CSS preprocessor (SASS)
+- install SASS & generate some CSS using CSS preprocessor (SASS)
 - minify the CSS output
-- follow the instructions, using the following features: variables, mixins (functions), nesting, partials & import, extend/inheritance, math operators
+- follow the instructions, using SASS features: variables, mixins (functions), nesting, partials & import, extend/inheritance, math operators
