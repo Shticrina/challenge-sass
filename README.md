@@ -4,6 +4,6 @@
 
 **In this exercise we have to:**
 
-- install Sass & generate some CSS usig CSS preprocessor (SASS)
+- install Sass & generate some CSS using CSS preprocessor (SASS)
 - minify the CSS output
 - follow the instructions, using the following features: variables, mixins (functions), nesting, partials & import, extend/inheritance, math operators
