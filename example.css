@@ -1,6 +1,7 @@
 body {
   font: 100% "Space Mono", monospace;
   color: #27b379;
+  /*green*/
   margin: 0px;
   padding: 0px;
   background-color: #000;
@@ -14,7 +15,6 @@ article {
   display: flex;
   flex-wrap: wrap;
 }
-
 article section {
   flex-grow: 1;
   flex-basis: 45%;
@@ -28,14 +28,8 @@ article section {
   overflow: auto;
   box-sizing: border-box;
 }
-
-article section#selling-points {
-  flex-grow: 2;
-  flex-basis: 100%;
-}
-
-article code {
-  background: #000;
+article section code {
+  /*background: #000;*/
   border: 1px solid #ddd;
   color: #666;
   page-break-inside: avoid;
@@ -48,19 +42,21 @@ article code {
   padding: 1em 1.5em;
   display: block;
   word-wrap: break-word;
+  background-color: #27b379;
 }
-
-article code.before {
+article section code.before {
   float: left;
   width: 40%;
 }
-
-article code.after {
+article section code.after {
   float: right;
   width: 40%;
 }
+article section#selling-points {
+  flex-grow: 2;
+  flex-basis: 100%;
+}
 
-/*h1,*/
 h2,
 h6 {
   color: #6B8EFF;
@@ -93,7 +89,7 @@ h1 {
 }
 
 .success {
-  background-color: green;
+  background-color: #27b379;
 }
 
 .error {

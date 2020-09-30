@@ -1,5 +1,5 @@
 $primary-color: #2748B3;
-$defalut-color: #27b379;
+$default-color: #27b379;
 $white-color: #f3f3f3;
 $secondary-color: #ccc;
 
@@ -14,7 +14,7 @@ $blue: 8px;
 
 body {
     font: 100% "Space Mono", monospace;
-    color: $defalut-color;
+    color: $default-color; /*green*/
     margin: 0px;
     padding: 0px;
     background-color: #000;
@@ -26,53 +26,53 @@ body {
 
 article {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+
+    section {
+        flex-grow: 1;
+        flex-basis: 45%;
+        border: 1px silver solid;
+        @include box-shadow(10px 10px 19px -4px rgba(255, 255, 255, 0.75));
+        padding: $red;
+        margin: $red;
+        clear: both;
+        overflow: auto;
+        box-sizing: border-box;
+
+        code {
+            /*background: #000;*/
+            border: 1px solid #ddd;
+            color: #666;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: 1em 1.5em;
+            display: block;
+            word-wrap: break-word;
+            background-color: $default-color
+        }
+
+        code.before {
+            float: left;
+            width: 40%;
+        }
+
+        code.after {
+            float: right;
+            width: 40%;
+        }
+    }
+
+    section#selling-points {
+        flex-grow: 2;
+        flex-basis: 100%
+    }
 }
 
-article section {
-    flex-grow: 1;
-    flex-basis: 45%;
-    border: 1px silver solid;
-    @include box-shadow(10px 10px 19px -4px rgba(255, 255, 255, 0.75));
-    padding: $red;
-    margin: 16px;
-    clear: both;
-    overflow: auto;
-    box-sizing: border-box
-}
-
-article section#selling-points {
-    flex-grow: 2;
-    flex-basis: 100%
-}
-
-article code {
-    background: #000;
-    border: 1px solid #ddd;
-    color: #666;
-    page-break-inside: avoid;
-    font-family: monospace;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 1.6em;
-    max-width: 100%;
-    overflow: auto;
-    padding: 1em 1.5em;
-    display: block;
-    word-wrap: break-word
-}
-
-article code.before {
-    float: left;
-    width: 40%
-}
-
-article code.after {
-    float: right;
-    width: 40%
-}
-
-/*h1,*/
 h2,
 h6 {
     color: #6B8EFF
@@ -105,7 +105,7 @@ h1 {
 }
 
 .success {
-    background-color: green
+    background-color: $default-color
 }
 
 .error {
