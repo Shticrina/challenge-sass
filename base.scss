@@ -1,8 +1,25 @@
-$primary-color: #2748B3;
+@import "blue";
+/*@import "red";*/
+
+$blue-theme: true !default;
+$red-theme: false !default;
+$primary-color: #2748B3 !default;
+$background-color: #333 !default;
+
+/*theme-red: import red.scss, import base*/
+/*theme-blue: import blue.scss, import base*/
+
+/*@if $blue-theme {
+    @import "blue";
+} @else {
+    @import "red";
+}*/
+
 $success-color: #27b379;
 $warning-color: #f8a428;
 $danger-color: #ec5959;
 $white-color: #f3f3f3;
+$black-color: #333;
 $secondary-color: #ccc;
 
 $red: 16px;
@@ -14,20 +31,43 @@ $blue: 8px;
     box-shadow: $property;
 }
 
+@function changeTextColor($color) {
+    $primary-color: $color;
+    @return $color;
+}
+
+@function changeBackgroundColor($color) {
+    $background-color: $color;
+    @return $color;
+}
+
+@function changeColor($text_color, $background_color) {
+    $primary-color: $text_color;
+    $background-color: $background_color;
+
+    /*@return $color;*/
+}
+
 %message-shared {
-    /*border: 1px solid #ccc;*/
     padding: 10px;
     color: #2748B3;
-    background-color: #000;
     width: 100%
+}
+
+@if $blue-theme {
+    $primary-color: #2748B3;
+    $background-color: #333;
+} @else {
+    $primary-color: #ec5959;
+    $background-color: #eee;
 }
 
 body {
     font: 100% "Space Mono", monospace;
-    color: $success-color; /*green*/
+    color: $primary-color;
     margin: 0px;
     padding: 0px;
-    background-color: #000;
+    background-color: $background-color;
     background-image: radial-gradient(#fff, rgba(255, 255, 255, 0.2) 2px, transparent 40px), radial-gradient(#fff, rgba(255, 255, 255, 0.15) 1px, transparent 30px), radial-gradient(#fff, rgba(255, 255, 255, 0.1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1) 2px, transparent 30px);
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
@@ -62,7 +102,6 @@ article {
             padding: 1em 1.5em;
             display: block;
             word-wrap: break-word;
-            background-color: $success-color
         }
 
         code.before {
@@ -79,6 +118,51 @@ article {
     section#selling-points {
         flex-grow: 2;
         flex-basis: 100%
+    }
+
+    section.links {
+        color: $warning-color;
+        border: none;
+        @include box-shadow(none);
+
+        a {
+            padding: $blue $red;
+            margin: 0 3*$blue;
+            text-decoration: none;
+            color: $black-color;
+            background-color: $secondary-color;
+
+            &:hover {
+                background-color: $white-color;
+            }
+
+            /*&:active {*/
+                /*$primary-color: changeTextColor($danger-color);*/
+
+                /*@if $blue-theme {
+                    $primary-color: darken($primary-color, 60%);
+                    $accent-color: lighten($accent-color, 60%);
+                }*/
+            /*}*/
+        }
+
+        a.red:active {
+            $red-theme: true;
+            $blue-theme: false;
+            background: red;
+            /*@debug $red-theme;*/
+
+            /*$primary-color: changeColor($danger-color);*/
+            /*color: changeColor($danger-color);*/
+            /*background-color: invert($primary-color, 60%);*/
+            /*changeColor($danger-color);*/
+        }
+
+        a.blue:active {
+            $blue-theme: true;
+            $red-theme: false;
+            background: blue;
+        }
     }
 }
 
