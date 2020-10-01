@@ -7,3 +7,5 @@
 - install SASS & generate some CSS using CSS preprocessor (SASS)
 - minify the CSS output
 - follow the instructions, using SASS features: variables, mixins (functions), nesting, partials & import, extend/inheritance, math operators
+
+***Github page:*** https://shticrina.github.io/challenge-sass/
