@@ -1,19 +1,8 @@
-@import "blue";
+/*@import "blue";*/
 /*@import "red";*/
 
-$blue-theme: true !default;
-$red-theme: false !default;
 $primary-color: #2748B3 !default;
 $background-color: #333 !default;
-
-/*theme-red: import red.scss, import base*/
-/*theme-blue: import blue.scss, import base*/
-
-/*@if $blue-theme {
-    @import "blue";
-} @else {
-    @import "red";
-}*/
 
 $success-color: #27b379;
 $warning-color: #f8a428;
@@ -31,6 +20,12 @@ $blue: 8px;
     box-shadow: $property;
 }
 
+%message-shared {
+    padding: 10px;
+    color: #2748B3;
+    width: 100%
+}
+
 @function changeTextColor($color) {
     $primary-color: $color;
     @return $color;
@@ -41,25 +36,22 @@ $blue: 8px;
     @return $color;
 }
 
-@function changeColor($text_color, $background_color) {
-    $primary-color: $text_color;
-    $background-color: $background_color;
-
-    /*@return $color;*/
+#root:target {
+    @import "blue";
+    color: changeTextColor($primary-color);
+    background-color: changeBackgroundColor($background-color);
 }
 
-%message-shared {
-    padding: 10px;
-    color: #2748B3;
-    width: 100%
-}
+#root-child:target {
+    @import "red";
+    color: changeTextColor($primary-color);
+    background-color: changeBackgroundColor($background-color);
 
-@if $blue-theme {
-    $primary-color: #2748B3;
-    $background-color: #333;
-} @else {
-    $primary-color: #ec5959;
-    $background-color: #eee;
+    h1,
+    h2,
+    h6 {
+        color: $primary-color;
+    }
 }
 
 body {
@@ -104,12 +96,12 @@ article {
             word-wrap: break-word;
         }
 
-        code.before {
+        &.before {
             float: left;
             width: 40%;
         }
 
-        code.after {
+        &.after {
             float: right;
             width: 40%;
         }
@@ -146,29 +138,30 @@ article {
             /*}*/
         }
 
-        a.red:active {
+        /*a.red:active {
             $red-theme: true;
             $blue-theme: false;
-            background: red;
+            background: red;*/
             /*@debug $red-theme;*/
 
             /*$primary-color: changeColor($danger-color);*/
             /*color: changeColor($danger-color);*/
             /*background-color: invert($primary-color, 60%);*/
             /*changeColor($danger-color);*/
-        }
+        /*}
 
         a.blue:active {
             $blue-theme: true;
             $red-theme: false;
             background: blue;
-        }
+        }*/
     }
 }
 
+h1,
 h2,
 h6 {
-    color: #6B8EFF
+    color: $primary-color;
 }
 
 h1 {
@@ -180,10 +173,6 @@ h6 {
     font-size: 2em;
     padding: 2*$red;
     margin-bottom: 0px
-}
-
-h1 {
-    color: $primary-color;
 }
 
 .message {

@@ -1,15 +1,24 @@
+/*@import "blue";*/
 /*@import "red";*/
-/*theme-red: import red.scss, import base*/
-/*theme-blue: import blue.scss, import base*/
-/*@if $blue-theme {
-    @import "blue";
-} @else {
-    @import "red";
-}*/
 .warning, .error, .success, .message {
   padding: 10px;
   color: #2748B3;
   width: 100%;
+}
+
+#root:target {
+  color: #2748B3;
+  background-color: #333;
+}
+
+#root-child:target {
+  color: #ec5959;
+  background-color: #eee;
+}
+#root-child:target h1,
+#root-child:target h2,
+#root-child:target h6 {
+  color: #ec5959;
 }
 
 body {
@@ -55,11 +64,11 @@ article section code {
   display: block;
   word-wrap: break-word;
 }
-article section code.before {
+article section.before {
   float: left;
   width: 40%;
 }
-article section code.after {
+article section.after {
   float: right;
   width: 40%;
 }
@@ -73,6 +82,22 @@ article section.links {
   -webkit-box-shadow: none;
   -ms-box-shadow: none;
   box-shadow: none;
+  /*a.red:active {
+      $red-theme: true;
+      $blue-theme: false;
+      background: red;*/
+  /*@debug $red-theme;*/
+  /*$primary-color: changeColor($danger-color);*/
+  /*color: changeColor($danger-color);*/
+  /*background-color: invert($primary-color, 60%);*/
+  /*changeColor($danger-color);*/
+  /*}
+
+  a.blue:active {
+      $blue-theme: true;
+      $red-theme: false;
+      background: blue;
+  }*/
 }
 article section.links a {
   padding: 8px 16px;
@@ -91,21 +116,11 @@ article section.links a {
 article section.links a:hover {
   background-color: #f3f3f3;
 }
-article section.links a.red:active {
-  background: red;
-  /*@debug $red-theme;*/
-  /*$primary-color: changeColor($danger-color);*/
-  /*color: changeColor($danger-color);*/
-  /*background-color: invert($primary-color, 60%);*/
-  /*changeColor($danger-color);*/
-}
-article section.links a.blue:active {
-  background: blue;
-}
 
+h1,
 h2,
 h6 {
-  color: #6B8EFF;
+  color: #2748B3;
 }
 
 h1 {
@@ -117,10 +132,6 @@ h6 {
   font-size: 2em;
   padding: 32px;
   margin-bottom: 0px;
-}
-
-h1 {
-  color: #2748B3;
 }
 
 .success {
